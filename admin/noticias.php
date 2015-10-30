@@ -69,7 +69,7 @@
 
                         if ($_GET['tipo'] == "insert") {
 
-                            $sql_editoria = "SELECT * FROM editoria";
+                            $sql_editoria = "SELECT * FROM editoria WHERE nome <> 'MUNDO' AND nome <> 'POLÍTICA'";
                             $executa_sql_editoria = mysql_query($sql_editoria)or die(mysql_error());
                             ?>
 
@@ -79,7 +79,8 @@
                                     <label for="exampleInputEmail1">ESCOLHA A EDITORIA</label>
 
                                     <select name="tipo_editoria" class="form-control m-bot15">
-                                        <option value="">selecione a editoria</option>
+
+                                        <option value="">selecione a editoria</option>
                                         <?php
                                         while ($row_editoria = mysql_fetch_array($executa_sql_editoria)) {
                                             ?>
@@ -255,7 +256,7 @@
                             $dados_update = mysql_fetch_array($executa_seleciona_dados);
 
 
-                            $sql_editoria = "SELECT * FROM editoria";
+                            $sql_editoria = "SELECT * FROM editoria WHERE nome <> 'MUNDO' AND nome <> 'POLÍTICA'";
                             $executa_sql_editoria = mysql_query($sql_editoria)or die(mysql_error());
                             ?>
 

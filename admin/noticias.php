@@ -164,7 +164,7 @@
 
                                         <div class="col-sm-5">
                                             <label for="exampleInputEmail1">LEGENDA DA FOTO</label>
-                                            <textarea name="legenda" id="" class="form-control" rows="1"></textarea>
+                                            <textarea name="legenda" id="" class="form-control" rows="3"></textarea>
                                             <br/>
                                             <label for="exampleInputEmail1">ALINHAMENTO DA FOTO</label>
                                             <div class="radios">
@@ -316,7 +316,7 @@
                                 <div class="form-group col-sm-12">
 
                                     <label for="exampleInputEmail1">TEXTO</label>
-                                    <textarea name="texto" id="" class="wysihtml5 form-control" ><?php echo $dados_update['texto']; ?></textarea>
+                                    <textarea name="texto" id="" rows="20" class="wysihtml5 form-control" ><?php echo $dados_update['texto']; ?></textarea>
 
                                 </div>
                                 <!--
@@ -358,7 +358,7 @@
 
                                         <div class="col-sm-5">
                                             <label for="exampleInputEmail1">LEGENDA DA FOTO</label>
-                                            <textarea name="legenda" id="" class="form-control" rows="1"><?php echo $dados_update['legenda']; ?></textarea>
+                                            <textarea name="legenda" id="" class="form-control" rows="3"><?php echo $dados_update['legenda']; ?></textarea>
                                             <br/>
                                             <label for="exampleInputEmail1">ALINHAMENTO DA FOTO</label>
                                             <div class="radios">

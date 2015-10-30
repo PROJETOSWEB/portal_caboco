@@ -33,7 +33,7 @@
 
                             <form role="form" class=" form-validation" action="php/salva_sub_editorias.php" data-ng-submit="submitForm()" method="POST" enctype='multipart/form-data'>
                                 <?php
-                                $sql_editoria = "SELECT * FROM editoria WHERE nome <> 'MUNDO' AND nome <>'POLÍTICA'";
+                                $sql_editoria = "SELECT * FROM editoria WHERE nome <> 'MUNDO' AND nome <> 'POLÍTICA'";
                                 $executa_sql_editoria = mysql_query($sql_editoria)or die(mysql_error());
                                 ?>
 

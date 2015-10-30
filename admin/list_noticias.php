@@ -159,7 +159,7 @@
                                             ?>
 
                                             <tr class="gradeA" style="text-align: center;">
-                                                <td style="text-align: left;"><?php echo $dados_array['titulo']; ?></td>
+                                                <td style="text-align: left; font-size: 16px;"><?php echo $dados_array['titulo']; ?></td>
                                                 <td><?php echo $dados_array['data_noticia']; ?></td>
                                                 <td><?php echo $dados_array['nomeeditoria'] ?></td>
                                                 <td><?php echo $dados_array['sub_editora'] ?></td>

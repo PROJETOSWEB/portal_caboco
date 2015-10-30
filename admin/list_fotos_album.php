@@ -1,13 +1,3 @@
-<?php
-session_start();
-if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['usuario']);
-    unset($_SESSION['senha']);
-    header('location:index.php');
-}
-?>
-
-
 <!--header end-->
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
@@ -97,7 +87,9 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                     <thead>
                                         <tr>
                                             <th style="text-align: left;">FOTO</th>
-                                            <th style="text-align: left;">LEGENDA</th>                                            <th style="text-align: center;">EDITAR</th>                                            <th style="text-align: center;">EXCLUIR</th>
+                                            <th style="text-align: left;">LEGENDA</th>
+                                            <th style="text-align: center;">EDITAR</th>
+                                            <th style="text-align: center;">EXCLUIR</th>
                                             <th style="text-align: center;">DATA</th>
                                             <th style="text-align: center;">POSTADO POR</th>
 
@@ -127,7 +119,9 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                                         <img src="imagens/fotos/<?php echo $array_dados['img']; ?>" height="100" alt="" />
                                                     </a>
                                                 </td>
-                                                <td style="text-align: left;"><?php echo $array_dados['legenda']; ?></td>                                                <td><a href="fotos.php?tipo=edit&id=<?php echo $array_dados['album_fotos_id']; ?>&album=<?php echo $_GET['id']?>"><img src="img/editar.png" alt="" /></a></td>                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
+                                                <td style="text-align: left;"><?php echo $array_dados['legenda']; ?></td>
+                                                <td><a href="fotos.php?tipo=edit&id=<?php echo $array_dados['album_fotos_id']; ?>&album=<?php echo $_GET['id']?>"><img src="img/editar.png" alt="" /></a></td>
+                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
                                                 <td><?php echo $array_dados['data']; ?></td>
                                                 <td><?php echo $array_dados['nome']; ?></td>
 

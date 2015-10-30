@@ -131,7 +131,10 @@
                                         <tr>
                                             <th style="text-align: left;">TITULO DA NOTÍCIA</th>
                                             <th style="text-align: center;">DATA</th>
-                                            <th style="text-align: center;">EDITORIA</th>                                            <th style="text-align: center;">SUB-EDITORIA</th>                                            <th style="text-align: center;">EDITAR</th>                                            <th style="text-align: center;">EXCLUIR</th>
+                                            <th style="text-align: center;">EDITORIA</th>
+                                            <th style="text-align: center;">SUB-EDITORIA</th>
+                                            <th style="text-align: center;">EDITAR</th>
+                                            <th style="text-align: center;">EXCLUIR</th>
                                             <th style="text-align: center;">NO AR?</th>
                                             <th style="text-align: center;">DESTAQUE</th>
                                             <th style="text-align: center;">POSTADO POR</th>
@@ -157,8 +160,11 @@
 
                                             <tr class="gradeA" style="text-align: center;">
                                                 <td style="text-align: left;"><?php echo $dados_array['titulo']; ?></td>
-                                                <td><?php echo $dados_array['data_noticia']; ?></td>                                                <td><?php echo $dados_array['nomeeditoria'] ?></td>
-                                                <td><?php echo $dados_array['sub_editora'] ?></td>                                                <td><a href="noticias.php?tipo=edit&id=<?php echo $dados_array['noticia_id']; ?>"><img src="img/editar.png" alt="" /></a></td>                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
+                                                <td><?php echo $dados_array['data_noticia']; ?></td>
+                                                <td><?php echo $dados_array['nomeeditoria'] ?></td>
+                                                <td><?php echo $dados_array['sub_editora'] ?></td>
+                                                <td><a href="noticias.php?tipo=edit&id=<?php echo $dados_array['noticia_id']; ?>"><img src="img/editar.png" alt="" /></a></td>
+                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
                                                 <td>
 
                                                     <?php

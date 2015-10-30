@@ -1,13 +1,3 @@
-<?php
-session_start();
-if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['usuario']);
-    unset($_SESSION['senha']);
-    header('location:index.php');
-}
-?>
-
-
 <!--header end-->
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
@@ -175,7 +165,9 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                         <tr>
                                             <th style="text-align: left;">CAPA DO ÁLBUM</th>
                                             <th style="text-align: left;">NOME DO ÁLBUM</th>
-                                            <th style="text-align: center;">Nº FOTOS</th>                                            <th style="text-align: center;">EDITAR</th>                                            <th style="text-align: center;">EXCLUIR</th>
+                                            <th style="text-align: center;">Nº FOTOS</th>
+                                            <th style="text-align: center;">EDITAR</th>
+                                            <th style="text-align: center;">EXCLUIR</th>
                                             <th style="text-align: center;">DATA</th>
                                             <th style="text-align: center;">POSTADO POR</th>
 
@@ -184,7 +176,7 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                     <tbody>
 
                                         <?php
-                                        $seleciona_dados = "select COUNT(*) as qtd, album.album_id, album.nome, usuario.nome as usuarionome, capa_album, img from album_fotos
+                                        $seleciona_dados = "select COUNT(*) as qtd, album.album_id, album.nome, album.data as dataalbum, usuario.nome as usuarionome, capa_album, img from album_fotos
                                                             INNER JOIN album ON album_fotos.album_id = album.album_id
                                                             INNER JOIN usuario ON usuario.usuario_id = album.usuario_id
                                                             GROUP BY album.nome";
@@ -204,8 +196,10 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                                     </a>
                                                 </td>
                                                 <td style="text-align: left;"><a href="list_fotos_album.php?tipo=edit&id=<?php echo $array_dados['album_id']; ?>"><?php echo $array_dados['nome'] ?></a></td>
-                                                <td><?php echo $array_dados['qtd'] ?></td>                                                <td><a href="list_fotos_album.php?tipo=edit&id=<?php echo $array_dados['album_id']; ?>"><img src="img/editar.png" alt="" /></a></td>                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
-                                                <td><?php echo $array_dados['data']; ?></td>
+                                                <td><?php echo $array_dados['qtd'] ?></td>
+                                                <td><a href="list_fotos_album.php?tipo=edit&id=<?php echo $array_dados['album_id']; ?>"><img src="img/editar.png" alt="" /></a></td>
+                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
+                                                <td><?php echo $array_dados['dataalbum']; ?></td>
                                                 <td><?php echo $array_dados['usuarionome']; ?></td>
                                             </tr>
 

@@ -1,4 +1,13 @@
 <?php
+session_start();
+if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == true)) {
+    unset($_SESSION['usuario']);
+    unset($_SESSION['senha']);
+    header('location:index.php');
+}
+?>
+
+<?php
 include './conections/conexao.php';
 ?>
 
@@ -21,10 +30,10 @@ include './conections/conexao.php';
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-		<link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css" />
+        <link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css" />
         <link rel="stylesheet" type="text/css" href="assets/bootstrap-colorpicker/css/colorpicker.css" />
         <link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker.css" />
-        
+
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style-responsive.css" rel="stylesheet" />
@@ -33,8 +42,8 @@ include './conections/conexao.php';
         <!--[if lt IE 9]>
           <script src="js/html5shiv.js"></script>
           <script src="js/respond.min.js"></script><!--custom tagsinput-->
-          <script src="js/jquery.tagsinput.js"></script>
-          <script type="text/javascript" src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+        <script src="js/jquery.tagsinput.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
         <![endif]-->
     </head>
 
@@ -269,7 +278,7 @@ include './conections/conexao.php';
                                 <b class="caret"></b>
                             </a>
 
-                         
+
 
 
                             <ul class="dropdown-menu extended logout">

@@ -1,12 +1,3 @@
-<?php
-session_start();
-if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['usuario']);
-    unset($_SESSION['senha']);
-    header('location:index.php');
-}
-?>
-
 <!--header end-->
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
@@ -142,7 +133,9 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                     <thead>
                                         <tr>
                                             <th style="text-align: left;">FOTO</th>
-                                            <th style="text-align: center;">NOME DO BLOG</th>                                            <th style="text-align: center;">EDITAR</th>                                            <th style="text-align: center;">EXCLUIR</th>
+                                            <th style="text-align: center;">NOME DO BLOG</th>
+                                            <th style="text-align: center;">EDITAR</th>
+                                            <th style="text-align: center;">EXCLUIR</th>
                                             <th style="text-align: center;">POSTADO POR</th>
 
                                         </tr>
@@ -169,7 +162,9 @@ if ((!isset($_SESSION['usuario']) == true) and ( !isset($_SESSION['senha']) == t
                                                     </a>
                                                 </td>
 
-                                                <td style="text-align: center;"><?php echo $array_dados['blogn']; ?></td>                                                <td><a href="blogs.php?tipo=edit&id=<?php echo $array_dados['blogs_id']; ?>"><img src="img/editar.png" alt="" /></a></td>                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
+                                                <td style="text-align: center;"><?php echo $array_dados['blogn']; ?></td>
+                                                <td><a href="blogs.php?tipo=edit&id=<?php echo $array_dados['blogs_id']; ?>"><img src="img/editar.png" alt="" /></a></td>
+                                                <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
                                                 <td><?php echo $array_dados['nome']; ?></td>
                                             </tr>
 

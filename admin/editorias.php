@@ -94,9 +94,8 @@
                             ?>
 
                             <form role="form" class=" form-validation" action="php/update_sub_editorias.php" data-ng-submit="submitForm()" method="POST" enctype='multipart/form-data'>
-
-                                <input type="hidden" value="<?php echo $_GET['id']; ?>" name="id"/>
-
+                            
+                                <input type="hidden" value="<?php echo $_GET['id']; ?>" name="id"/>                                                                <?php                                $sql_editoria = "SELECT * FROM editoria WHERE nome <> 'MUNDO' AND nome <> 'POLÍTICA'";                                $executa_sql_editoria = mysql_query($sql_editoria)or die(mysql_error());                                ?>                                                                
                                 <div class="form-group col-lg-6">
                                     <label for="exampleInputEmail1">ESCOLHA A EDITORIA</label>
                                     <select data-ng-model="sub.editoria" required name="tipo_editora" class="form-control m-bot15">

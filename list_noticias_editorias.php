@@ -67,69 +67,84 @@
                         <!-- <div class="ot-panel-block panel-dark dark-texture"> -->
                         <div class="ot-panel-block">
 
+                            <?php
+                            $ideditoria = $_GET['editoria'];
+
+                            $sql_sub = "SELECT * FROM editoria WHERE editoria_id = $ideditoria ";
+
+                            $executa_sql_editoria = mysql_query($sql_sub)or die(mysql_error());
+                            $dados_sql_editoria = mysql_fetch_array($executa_sql_editoria);
+                            ?>
+
+
+                            <div class="title-block" style=" border-bottom-color:#F7931D;">
+                                <h2><a href="#" class="<?php echo $dados_sql_editoria['class']; ?>"><?php echo $dados_sql_editoria['nome']; ?></a> </h2>
+                                <br/>
+                            </div>
+
+
+                            <div class="blog-articles">
+
                                 <?php
-                                $ideditoria = $_GET['editoria'];
+                                //PEGANDO PAGINA ATUAL
+                                $p = $_GET["page"];
+                                if (isset($p)) {
+                                    $p = $p;
+                                } else {
+                                    $p = 1;
+                                }
 
-                                $sql_sub = "SELECT * FROM editoria WHERE editoria_id = $ideditoria ";
+                                //DEFININDO A QUANTIDADE DE REGISTROS POR PAGINA
 
-                                $executa_sql_editoria = mysql_query($sql_sub)or die(mysql_error());
-                                $dados_sql_editoria = mysql_fetch_array($executa_sql_editoria);
-                                ?>
-
-
-                                <div class="title-block" style=" border-bottom-color:#F7931D;">
-                                    <h2><a href="#" class="<?php echo $dados_sql_editoria['class']; ?>"><?php echo $dados_sql_editoria['nome']; ?></a> </h2>
-                                    <br/>
-                                </div>
+                                $qnt = 5;
+                                $inicio = ($p * $qnt) - $qnt;
 
 
-                                <div class="blog-articles">
+
+                                $sql_sub_noticia = "SELECT * FROM noticia INNER JOIN
+                                                    sub_editoriais ON noticia.sub_editoriais_id = sub_editoriais.sub_editoriais_id
+                                                    INNER JOIN editoria ON editoria.editoria_id = sub_editoriais.editoria_id
+                                                    WHERE editoria.editoria_id = $ideditoria ORDER BY noticia_id DESC LIMIT $inicio, $qnt;";
+
+
+                                $executa_sub_noticia = mysql_query($sql_sub_noticia)or die(mysql_error());
+
+                                function limitarTexto($texto, $limite) {
+                                    $texto = substr($texto, 0, strrpos(substr($texto, 0, $limite), ' ')) . '...';
+                                    return $texto;
+                                }
+
+                                while ($array_sub_categoria = mysql_fetch_array($executa_sub_noticia)) {
+                                    ?>
+                                    <!-- item categoria -->
+                                    <div class="item">
+
+                                        <div class="item-header">
+                                            <a href="materias.php?idt=<?php echo $array_sub_categoria['noticia_id']; ?>" class="image-hover">
+                                                <img src="admin/imagens/noticia/<?php echo $array_sub_categoria['img']; ?>"  width="368"  alt="" >
+                                            </a>
+                                        </div>
+
+                                        <div class="item-content">
+                                            <p style="float: left; margin-right: 25px; font-weight: 600;"><?php echo $array_sub_categoria['sub_editora']; ?><p> <!-- SUB-EDITORIA AQUI -->
+                                                <i class="fa fa-clock-o"></i>&nbsp;&nbsp; <?php echo $array_sub_categoria['data_noticia']; ?>
+
+                                            <h4><a href="materias.php?idt=<?php echo $array_sub_categoria['noticia_id']; ?>" class="<?php echo $array_sub_categoria['class']; ?>"><?php echo $array_sub_categoria['titulo']; ?></a></h4>
+
+                                            <p>
+                                                <?php print(limitarTexto($array_sub_categoria['texto'], $limite = 160)); ?>
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+                                    <div style="border-bottom: 1px solid #F1F2F2; margin: 15px;"></div>
+                                    <!-- // item categoria -->
+
 
                                     <?php
-                                    $sql_sub_noticia = "SELECT * FROM noticia INNER JOIN
-                                                        sub_editoriais ON noticia.sub_editoriais_id = sub_editoriais.sub_editoriais_id
-                                                        INNER JOIN editoria ON editoria.editoria_id = sub_editoriais.editoria_id
-                                                        WHERE editoria.editoria_id = $ideditoria ORDER BY noticia_id DESC";
-
-
-                                    $executa_sub_noticia = mysql_query($sql_sub_noticia)or die(mysql_error());
-
-                                    function limitarTexto($texto, $limite) {
-                                        $texto = substr($texto, 0, strrpos(substr($texto, 0, $limite), ' ')) . '...';
-                                        return $texto;
-                                    }
-
-                                    while ($array_sub_categoria = mysql_fetch_array($executa_sub_noticia)) {
-                                        ?>
-                                        <!-- item categoria -->
-                                        <div class="item">
-                                          
-                                            <div class="item-header">
-                                                <a href="materias.php?idt=<?php echo $array_sub_categoria['noticia_id']; ?>" class="image-hover">
-                                                    <img src="admin/imagens/noticia/<?php echo $array_sub_categoria['img']; ?>"  width="368"  alt="" >
-                                                </a>
-                                            </div>
-                                            
-                                            <div class="item-content">
-                                            <p style="float: left; margin-right: 25px; font-weight: 600;"><?php echo $array_sub_categoria['sub_editora'];?><p> <!-- SUB-EDITORIA AQUI -->
-                                                <i class="fa fa-clock-o"></i>&nbsp;&nbsp; <?php echo $array_sub_categoria['data_noticia']; ?>
-                                                
-                                                <h4><a href="materias.php?idt=<?php echo $array_sub_categoria['noticia_id']; ?>" class="<?php echo $array_sub_categoria['class']; ?>"><?php echo $array_sub_categoria['titulo']; ?></a></h4>
-
-                                                <p>
-                                                    <?php print(limitarTexto($array_sub_categoria['texto'], $limite = 160)); ?>
-                                                </p>
-
-                                            </div>
-                                            
-                                        </div>
-                                        <div style="border-bottom: 1px solid #F1F2F2; margin: 15px;"></div>
-                                        <!-- // item categoria -->
-
-
-                                        <?php
-                                    }
-                                    ?>
+                                }
+                                ?>
 
 
 
@@ -141,12 +156,103 @@
                         <div class="ot-panel-block">
 
                             <div class="pagination">
-                                <a class="prev page-numbers" href="#"><i class="fa fa-caret-left"></i>anterior</a>
+
+
+                                <?php
+                                $sql_sub_noticia = "SELECT * FROM noticia INNER JOIN
+                                                    sub_editoriais ON noticia.sub_editoriais_id = sub_editoriais.sub_editoriais_id
+                                                    INNER JOIN editoria ON editoria.editoria_id = sub_editoriais.editoria_id
+                                                    WHERE editoria.editoria_id = $ideditoria ORDER BY noticia_id DESC";
+                                $sql_query_all = mysql_query($sql_sub_noticia)or die(mysql_error());
+                                $total_registros = mysql_num_rows($sql_query_all);
+                                $pags = ceil($total_registros / $qnt);
+
+                                // Número máximos de botões de paginação 
+                                $max_links = 5;
+
+                                if (isset($_GET['page'])) {
+
+                                    if ($_GET['page'] == 1) {
+                                        ?>
+                                        <a class="prev page-numbers" href="list_noticias_editorias.php?page=1&editoria=<?php echo $ideditoria; ?>"><i class="fa fa-caret-left"></i>anterior</a>
+
+                                        <?php
+                                    } else {
+                                        ?>
+
+                                        <a class="prev page-numbers" href="list_noticias_editorias.php?page=<?php echo $p - 1; ?>&editoria=<?php echo $ideditoria; ?>"><i class="fa fa-caret-left"></i>anterior</a>
+
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+
+                                <?php
+                                // echo "<a href='list_noticias_editorias?page=1&editoria=$ideditoria' target='_self'>primeira pagina</a> ";
+
+                                for ($i = $p - $max_links; $i <= $p - 1; $i++) {
+
+                                    if ($i <= 0) {
+
+                                        //FAZ NADA
+                                    } else {
+                                        ?> 
+                                        <a class="page-numbers" href="list_noticias_editorias.php?page=<?php echo $i; ?>&editoria=<?php echo $ideditoria; ?>"><?php echo $i; ?></a>
+                                        <?php
+                                        //echo "<a href='list_noticias_editorias.php?page=$i&editoria=$ideditoria' target='_self'>$i</a> ";
+                                    }
+                                }
+
+
+                                echo $p;
+
+                                for ($i = $p + 1; $i <= $p + $max_links; $i++) {
+
+
+                                    if ($i > $pags) {
+
+                                        //FAZ NADA
+                                    } else {
+                                        ?>
+                                        <a class="page-numbers" href="list_noticias_editorias.php?page=<?php echo $i; ?>&editoria=<?php echo $ideditoria; ?>"><?php echo $i; ?></a>
+
+                                        <?php
+                                        //echo "<a href='list_noticias_editorias.php?page=$i&editoria=$ideditoria' target='_self'>$i</a> ";
+                                    }
+                                }
+
+
+
+                                if (isset($_GET['page'])) {
+
+                                    if ($_GET['page'] == $pags) {
+                                        ?>
+                                        <a class="next page-numbers" href="list_noticias_editorias.php?page=<?php echo $pags ?>&editoria=<?php echo $ideditoria; ?>">próxima<i class="fa fa-caret-right"></i></a>
+
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <a class="next page-numbers" href="list_noticias_editorias.php?page=<?php echo $p+1; ?>&editoria=<?php echo $ideditoria; ?>">próxima<i class="fa fa-caret-right"></i></a>
+
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+
+
+
+                                <!--    <a class="next page-numbers" href="list_noticias_editorias.php?page=<?php echo $p + 1; ?>&editoria=<?php echo $ideditoria; ?>">próxima<i class="fa fa-caret-right"></i></a>-->
+
+<!--                                <a class="prev page-numbers" href="#"><i class="fa fa-caret-left"></i>anterior</a>
                                 <a class="page-numbers" href="#">1</a>
                                 <span class="page-numbers current">2</span>
                                 <a class="page-numbers" href="#">3</a>
                                 <a class="page-numbers" href="#">4</a>
-                                <a class="next page-numbers" href="#">próxima<i class="fa fa-caret-right"></i></a>
+                                <a class="next page-numbers" href="#">próxima<i class="fa fa-caret-right"></i></a>-->
+                        
+                            
                             </div>
 
                         </div>

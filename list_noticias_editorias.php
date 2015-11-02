@@ -104,7 +104,7 @@
                                 $sql_sub_noticia = "SELECT * FROM noticia INNER JOIN
                                                     sub_editoriais ON noticia.sub_editoriais_id = sub_editoriais.sub_editoriais_id
                                                     INNER JOIN editoria ON editoria.editoria_id = sub_editoriais.editoria_id
-                                                    WHERE editoria.editoria_id = $ideditoria ORDER BY noticia_id DESC LIMIT $inicio, $qnt;";
+                                                    WHERE editoria.editoria_id = $ideditoria ORDER BY noticia_id DESC LIMIT $inicio, $qnt";
 
 
                                 $executa_sub_noticia = mysql_query($sql_sub_noticia)or die(mysql_error());
@@ -159,18 +159,20 @@
 
 
                                 <?php
-                                $sql_sub_noticia = "SELECT * FROM noticia INNER JOIN
+                                $sql_sub_noticia_count = "SELECT * FROM noticia INNER JOIN
                                                     sub_editoriais ON noticia.sub_editoriais_id = sub_editoriais.sub_editoriais_id
                                                     INNER JOIN editoria ON editoria.editoria_id = sub_editoriais.editoria_id
                                                     WHERE editoria.editoria_id = $ideditoria ORDER BY noticia_id DESC";
-                                $sql_query_all = mysql_query($sql_sub_noticia)or die(mysql_error());
+                                $sql_query_all = mysql_query($sql_sub_noticia_count)or die(mysql_error());
                                 $total_registros = mysql_num_rows($sql_query_all);
                                 $pags = ceil($total_registros / $qnt);
 
                                 // Número máximos de botões de paginação 
                                 $max_links = 5;
 
+
                                 if (isset($_GET['page'])) {
+
 
                                     if ($_GET['page'] == 1) {
                                         ?>
@@ -184,6 +186,11 @@
 
                                         <?php
                                     }
+                                } else {
+                                    ?>
+
+                                    <a class="prev page-numbers" href="list_noticias_editorias.php?page=1&editoria=<?php echo $ideditoria; ?>"><i class="fa fa-caret-left"></i>anterior</a>
+                                    <?php
                                 }
                                 ?>
 
@@ -205,8 +212,7 @@
                                 }
 
 
-                                echo $p;
-
+                                   echo $p;
                                 for ($i = $p + 1; $i <= $p + $max_links; $i++) {
 
 
@@ -233,10 +239,16 @@
                                         <?php
                                     } else {
                                         ?>
-                                        <a class="next page-numbers" href="list_noticias_editorias.php?page=<?php echo $p+1; ?>&editoria=<?php echo $ideditoria; ?>">próxima<i class="fa fa-caret-right"></i></a>
+                                        <a class="next page-numbers" href="list_noticias_editorias.php?page=<?php echo $p + 1; ?>&editoria=<?php echo $ideditoria; ?>">próxima<i class="fa fa-caret-right"></i></a>
 
                                         <?php
                                     }
+                                } else {
+                                    ?>
+                                    <a class="next page-numbers" href="list_noticias_editorias.php?page=<?php echo $pags; ?>&editoria=<?php echo $ideditoria; ?>">próxima<i class="fa fa-caret-right"></i></a>
+
+
+                                    <?php
                                 }
                                 ?>
 
@@ -251,8 +263,8 @@
                                 <a class="page-numbers" href="#">3</a>
                                 <a class="page-numbers" href="#">4</a>
                                 <a class="next page-numbers" href="#">próxima<i class="fa fa-caret-right"></i></a>-->
-                        
-                            
+
+
                             </div>
 
                         </div>

@@ -138,14 +138,14 @@
                                             <h4 class="modal-title">CRIANDO ÁLBUM DE FOTOS</h4>
                                         </div>
                                         <div class="modal-body">
-											
+
                                             <form role="form col-sm-6" method="POST" action="php/salva_nomealbum.php">
-                                            
-                                            	<div class="form-group col-sm-6">
-                                            	    <label for="exampleInputEmail1">SELECIONE A DATA</label>
-                                            	    <input name="data" class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" />
-                                            	</div>
-                                            	
+
+                                                <div class="form-group col-sm-6">
+                                                    <label for="exampleInputEmail1">SELECIONE A DATA</label>
+                                                    <input name="data" class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" />
+                                                </div>
+
                                                 <div class="form-group col-sm-6">
                                                     <label for="exampleInputEmail1">Nome do novo álbum</label>
                                                     <input name="nome" type="text" class="form-control" placeholder="nome do álbum">
@@ -176,9 +176,10 @@
                                     <tbody>
 
                                         <?php
-                                        $seleciona_dados = "select COUNT(*) as qtd, album.album_id, album.nome, album.data as dataalbum, usuario.nome as usuarionome, capa_album, img from album_fotos
+                                        $seleciona_dados = "select album.album_id, album.nome, album.data as dataalbum, usuario.nome as usuarionome, capa_album, img from album_fotos
                                                             INNER JOIN album ON album_fotos.album_id = album.album_id
                                                             INNER JOIN usuario ON usuario.usuario_id = album.usuario_id
+                                                            WHERE capa_album = 1
                                                             GROUP BY album.nome";
 
 
@@ -196,7 +197,17 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: left;"><a href="list_fotos_album.php?tipo=edit&id=<?php echo $array_dados['album_id']; ?>"><?php echo $array_dados['nome'] ?></a></td>
-                                                <td><?php echo $array_dados['qtd'] ?></td>
+                                                <td>
+
+                                                    <?php
+                                                    $albm_id = $array_dados['album_id'];
+                                                    $sql_qtd_fotos = "SELECT COUNT(*) as qtd FROM album_fotos WHERE album_id = $albm_id";
+                                                    $executa_qtd_fotos = mysql_query($sql_qtd_fotos)or die(mysql_error());
+                                                    $dados_executa_fotos = mysql_fetch_array($executa_qtd_fotos);
+                                                    echo $dados_executa_fotos['qtd'];
+                                                    ?>
+
+                                                </td>
                                                 <td><a href="list_fotos_album.php?tipo=edit&id=<?php echo $array_dados['album_id']; ?>"><img src="img/editar.png" alt="" /></a></td>
                                                 <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
                                                 <td><?php echo $array_dados['dataalbum']; ?></td>
@@ -212,7 +223,7 @@
                                                         <h4 class="modal-title">Excluir Album</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Deseja realmente excluir este Album?
+                                                        Todas as fotos deste album serão excluidas, deseja realmente fazer isso?
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button data-dismiss="modal" class="btn btn-default" type="button">Fechar</button>

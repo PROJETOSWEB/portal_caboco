@@ -40,7 +40,60 @@
             <div class="divider"></div>
 
             </br>
-           
+
+            <?php
+            if (isset($_GET['resp'])) {
+                if ($_GET['resp'] == "sucesso") {
+                    ?>
+
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>SUCESSO!</strong> Foto cadastrada com sucesso!
+                    </div>
+                    <?php
+                } else if ($_GET['resp'] == "erro") {
+                    ?>
+
+                    <div class="alert alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>ERRO!</strong> Ocorreu um erro ao cadastrar a Foto
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_GET['respe'])) {
+
+                if ($_GET['respe'] == "sucesso") {
+                    ?>
+
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>SUCESSO!</strong> Foto alterada com sucesso!
+                    </div>
+                    <?php
+                } else if ($_GET['respe'] == "erro") {
+                    ?>
+
+                    <div class="alert alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>ERRO!</strong> Ocorreu um erro ao alterar a Foto
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
 
             <?php
             if (isset($_GET['respt'])) {
@@ -68,7 +121,6 @@
                 }
             }
             ?>
-
 
             <div class="row">
                 <div class="col-lg-12">
@@ -120,7 +172,7 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: left;"><?php echo $array_dados['legenda']; ?></td>
-                                                <td><a href="fotos.php?tipo=edit&id=<?php echo $array_dados['album_fotos_id']; ?>&album=<?php echo $_GET['id']?>"><img src="img/editar.png" alt="" /></a></td>
+                                                <td><a href="fotos.php?tipo=edit&id=<?php echo $array_dados['album_fotos_id']; ?>&album=<?php echo $_GET['id'] ?>"><img src="img/editar.png" alt="" /></a></td>
                                                 <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
                                                 <td><?php echo $array_dados['data']; ?></td>
                                                 <td><?php echo $array_dados['nome']; ?></td>

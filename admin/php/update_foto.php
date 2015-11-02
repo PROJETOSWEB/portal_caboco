@@ -17,29 +17,50 @@ $legenda = $_POST['legenda'];
 $capa = $_POST['capa'];
 $img = $_FILES['img'];
 $album_fotos_id = $_POST['id'];
-
-if ($capa == "") {
-
-    $capa = 2;
-}
-
 $fileName = $_FILES["img"]["name"];
 
-if ($fileName == "") {
 
-    $nova_imagem = $_POST['imagem'];
+if ($capa == 1) {
+
+    //DANDO UPDATE NA TABELA 
+    $update_fotos = "UPDATE album_fotos SET capa_album = 2 WHERE album_id = $album";
+    $executa_update_fotos = mysql_query($update_fotos)or die(mysql_error());
+
+    if ($fileName == "") {
+
+        $nova_imagem = $_POST['imagem'];
+    } else {
+
+        $nova_imagem = $fileName;
+        $pathAndName = "../imagens/fotos/" . $fileName;
+        $fileTmpLoc = $_FILES["img"]["tmp_name"];
+        $moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+    }
+
+    $update = "UPDATE album_fotos SET data = '$data', img = '$nova_imagem', legenda = '$legenda', capa_album = '$capa' "
+            . "WHERE album_fotos_id = $album_fotos_id";
+
+    $executa_update = mysql_query($update)or die(mysql_error());
 } else {
+    
+    $capa = 2;
+    
+    if ($fileName == "") {
 
-    $nova_imagem = $fileName;
-    $pathAndName = "../imagens/fotos/" . $fileName;
-    $fileTmpLoc = $_FILES["img"]["tmp_name"];
-    $moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+        $nova_imagem = $_POST['imagem'];
+    } else {
+
+        $nova_imagem = $fileName;
+        $pathAndName = "../imagens/fotos/" . $fileName;
+        $fileTmpLoc = $_FILES["img"]["tmp_name"];
+        $moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+    }
+
+    $update = "UPDATE album_fotos SET data = '$data', img = '$nova_imagem', legenda = '$legenda', capa_album = '$capa' "
+            . "WHERE album_fotos_id = $album_fotos_id";
+
+    $executa_update = mysql_query($update)or die(mysql_error());
 }
-
-$update = "UPDATE album_fotos SET data = '$data', img = '$nova_imagem', legenda = '$legenda', capa_album = '$capa' "
-        . "WHERE album_fotos_id = $album_fotos_id";
-
-$executa_update = mysql_query($update)or die(mysql_error());
 
 
 if ($executa_update) {

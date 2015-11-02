@@ -134,50 +134,64 @@
                                 <div class="form-group col-sm-6">
                                     <label for="exampleInputEmail1">SELECIONE A DATA</label>
                                     <div class="col-md-12">
-                                        <div class="input-group input-large" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
-                                            <input value="<?php echo $dados_update['data_inicio']; ?>" type="text" class="form-control dpd1" name="inicio">
+
+
+                                        <?php
+                                        
+                                        $data_inicio = explode('-', $dados_update['data_inicio']);
+                                        $data_inicion = $data_inicio[2] . "/" . $data_inicio[1] . "/" . $data_inicio[0];
+
+                                        $data_fim = explode('-', $dados_update['data_final']);
+                                        $data_fimn = $data_fim[2] . "/" . $data_fim[1] . "/" . $data_fim[0];
+                                        
+                                        ?>
+
+
+                                        <div class="input-group input-large" data-date="13/07/2013" data-date-format="dd/mm/yyyy">
+                                            <input value="<?php echo $data_inicion; ?>" type="text" class="form-control dpd1" name="inicio">
                                             <span class="input-group-addon"> até </span>
-                                            <input value="<?php echo $dados_update['data_final']; ?>" type="text" class="form-control dpd2" name="fim">
+                                            <input value="<?php echo $data_fimn; ?>" type="text" class="form-control dpd2" name="fim">
                                         </div>
+
                                     </div>
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label for="exampleInputEmail1">FORMATO DO BANNER</label>
                                     <select name="formato_banner" class="form-control m-bot15">
-                                        <?php
-                                        if ($dados_update['formato'] == "SUPER BANNER - HOME") {
-                                            ?>
+        <?php
+        if ($dados_update['formato'] == "SUPER BANNER - HOME") {
+            ?>
                                             <option value="SUPER BANNER - HOME">SUPER BANNER • HOME</option>
                                             <option value="SQUARE BANNER - HOME">SQUARE BANNER • HOME</option>
                                             <option value="RODAPÉ BANNER - HOME">RODAPÉ BANNER • HOME</option>
                                             <option value="S. BANNER - INTERNAS">S. BANNER • INTERNAS</option>
-                                            <?php
-                                        } else if ($dados_update['formato'] == "SQUARE BANNER - HOME") {
-                                            ?>
+            <?php
+        } else if ($dados_update['formato'] == "SQUARE BANNER - HOME") {
+            ?>
 
                                             <option value="SQUARE BANNER - HOME">SQUARE BANNER • HOME</option>
                                             <option value="SUPER BANNER - HOME">SUPER BANNER • HOME</option>
                                             <option value="RODAPÉ BANNER - HOME">RODAPÉ BANNER • HOME</option>
                                             <option value="S. BANNER - INTERNAS">S. BANNER • INTERNAS</option>
 
-                                            <?php
-                                        } else if ($dados_update['formato'] == "RODAPÉ BANNER - HOME") {
-                                            ?>
+            <?php
+        } else if ($dados_update['formato'] == "RODAPÉ BANNER - HOME") {
+            ?>
                                             <option value="RODAPÉ BANNER - HOME">RODAPÉ BANNER • HOME</option>
                                             <option value="S. BANNER - INTERNAS">S. BANNER • INTERNAS</option>
                                             <option value="SUPER BANNER - HOME">SUPER BANNER • HOME</option>
                                             <option value="SQUARE BANNER - HOME">SQUARE BANNER • HOME</option>
-                                            <?php
-                                        } else if ($dados_update['formato'] == "S. BANNER - INTERNAS") {
-                                            ?>
+            <?php
+        } else if ($dados_update['formato'] == "S. BANNER - INTERNAS") {
+            ?>
                                             <option value="S. BANNER - INTERNAS">S. BANNER • INTERNAS</option>
                                             <option value="SUPER BANNER - HOME">SUPER BANNER • HOME</option>
                                             <option value="SQUARE BANNER - HOME">SQUARE BANNER • HOME</option>
                                             <option value="RODAPÉ BANNER - HOME">RODAPÉ BANNER • HOME</option>
-                                            <?php
-                                        }
-                                        ?>
+            <?php
+        }
+        ?>
                                     </select>
 
                                 </div>
@@ -234,7 +248,7 @@
                                     <hr/>
 
                                     <label style="margin-right: 20px;" class="col-sm-3 col-sm-3">PUBLICAR?</label>
-                                   
+
                                     <div class="switch switch-square"
                                          data-off-label="<i class='fa fa-times'></i>"
                                          data-on-label="<i class=' fa fa-check'></i>">
@@ -257,10 +271,10 @@
 
 
 
-                            <?php
-                        }
-                    }
-                    ?>
+        <?php
+    }
+}
+?>
 
 
 

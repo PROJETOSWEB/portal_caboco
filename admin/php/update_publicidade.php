@@ -14,6 +14,15 @@ include '../conections/conexao.php';
 
 $inicio = $_POST['inicio'];
 $fim = $_POST['fim'];
+
+
+$data_inicio = explode('/', $inicio);
+$data_inicion = $data_inicio[2] . "-" . $data_inicio[1] . "-" . $data_inicio[0];
+
+$data_fim = explode('/', $fim);
+$data_fimn = $data_fim[2] . "-" . $data_fim[1] . "-" . $data_fim[0];
+
+
 $formato_banner = $_POST['formato_banner'];
 $titulo = $_POST['titulo'];
 $link = $_POST['link'];
@@ -42,7 +51,7 @@ if ($fileName == "") {
 }
 
 
-$update = "UPDATE banner SET data_inicio = '$inicio', data_final = '$fim', formato = '$formato_banner', titulo = '$titulo', "
+$update = "UPDATE banner SET data_inicio = '$data_inicion', data_final = '$data_fimn', formato = '$formato_banner', titulo = '$titulo', "
         . "link = '$link', img = '$nova_imagem', publicar = '$publicar'"
         . "WHERE banner_id = $id_banner";
 

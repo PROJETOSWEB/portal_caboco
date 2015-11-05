@@ -212,6 +212,7 @@
                                                 <td><a data-toggle="modal" href="#myModal2<?php echo $cont++; ?>"><img src="img/excluir.png" alt="" /></a></td>
                                                 <td><?php echo $array_dados['dataalbum']; ?></td>
                                                 <td><?php echo $array_dados['usuarionome']; ?></td>
+                                                
                                             </tr>
 
 

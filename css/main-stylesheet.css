@@ -6897,7 +6897,7 @@ textarea.input-text {
 }
 .header-weather .small-title {
     display: block;
-    margin-left: 84px;
+    margin-left: 74px;
     font-weight: bold;
     font-size: 11px;
     margin-top: 4px;
@@ -6905,18 +6905,18 @@ textarea.input-text {
 }
 .header-weather strong {
     display: block;
-    margin-left: 84px;
-    font-weight: bold;
+    margin-left: 74px;
+    font-weight: 600;
     font-size: 17px;
     margin-top: auto;
     margin-bottom: 5px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 .header-weather .default-title {
     display: block;
-    margin-left: 84px;
+    margin-left: 74px;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 33px;
 }
 .header-weather {
     display: table-cell;
@@ -6925,7 +6925,7 @@ textarea.input-text {
     padding-left: 20px;
     text-align: left;
     color: #bbbbbb;
-}
+}.tempo{    margin-left: 74px;    margin-top: 7px;    font-weight: 600;}
 
 
 

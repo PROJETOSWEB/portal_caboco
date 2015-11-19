@@ -34,7 +34,6 @@ $(document).ready(function(){
 		}
 		
 	}
-		    var userFeed = new Instafeed({	        get: 'user',	        userId: 12964951,	        accessToken: '12964951.467ede5.20020c1ffb49472480dbfdfc8db0d1e5'	    });	    userFeed.run();
 	
 	
 });

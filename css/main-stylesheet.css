@@ -438,7 +438,7 @@ a.azul:hover {
 }
 a.amarelo-escuro:hover {
 	color: #DABD00;
-}
+}a.preto:hover {	color: #000;}
 .menu-footer a span.verde:hover {	color: #8CC63E;}.menu-footer a span.vermelho:hover {	color: #ED1C24;}.menu-footer a span.laranja:hover {	color: #F7931D;}.menu-footer a span.roxo:hover {	color: #91268F;}.menu-footer a span.marrom:hover {	color: #A87B4F;}.menu-footer a span.azul:hover {	color: #27A9E1;}.menu-footer a span.amarelo-escuro:hover {	color: #DABD00;}
 
 
@@ -530,30 +530,8 @@ a.amarelo-escuro:hover {
 }
 #main-menu ul li:hover > a.amarelo-escuro {
 	color: #DABD00;
-}
-
-
-#main-menu ul li:hover > a.verde-escuro {
-	color: #7FA51B;
-}
-#main-menu ul li:hover > a.vermelho-escuro  {
-	color: #C00D0D;
-}
-#main-menu ul li:hover > a.laranja-escuro {
-	color: #CE7D00;
-}
-#main-menu ul li:hover > a.roxo-escuro  {
-	color: #80166F;
-}
-#main-menu ul li:hover > a.marrom-escuro  {
-	color: #976D3F;
-}
-#main-menu ul li:hover > a.azul-escuro  {
-	color: #3092C0;
-}
-#main-menu ul li:hover > a.amarelo-escuro  {
-	color: #DABD00;
-}.menu-footer{    float:left; margin-right: 25px;}
+}#main-menu ul li:hover > a.preto {	color: #000;}
+.menu-footer{    float:left; margin-right: 25px;}
 
 #main-menu ul li:hover > a {
 	color: #8CC63E;
@@ -6893,13 +6871,13 @@ textarea.input-text {
 .header-weather .weather-icon {
     display: block;
     float: left;
-    margin-right: 20px;
+    margin-right: 10px;    margin-left: 10px;
 }
 .header-weather .small-title {
     display: block;
     margin-left: 74px;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 8px;
     margin-top: 4px;
     margin-bottom: 3px;
 }
@@ -6907,25 +6885,23 @@ textarea.input-text {
     display: block;
     margin-left: 74px;
     font-weight: 600;
-    font-size: 17px;
-    margin-top: auto;
-    margin-bottom: 5px;
-    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    margin-top: 5px;
 }
 .header-weather .default-title {
     display: block;
     margin-left: 74px;
     font-weight: bold;
-    font-size: 33px;
+    font-size: 27px;
 }
 .header-weather {
     display: table-cell;
     vertical-align: middle;
     width: 20%;
-    padding-left: 20px;
+    padding-left: 30px;
     text-align: left;
-    color: #bbbbbb;
-}.tempo{    margin-left: 74px;    margin-top: 7px;    font-weight: 600;}
+    color: #bbbbbb;    font-family: 'Raleway', sans-serif;
+}.tempo{    margin-left: 74px;    margin-top: 3px;    font-weight: 600;    font-size: 12px;}
 
 
 

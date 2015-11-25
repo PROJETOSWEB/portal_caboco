@@ -3101,7 +3101,7 @@ body .title-block .title-links a:first-child:before {
 .ot-slide .ot-slider-layer:nth-child(n+4) a .slider-rating .slider-star-num,
 .ot-slide .ot-slider-layer.fourth a .slider-rating .slider-star-num {
 	font-size: 40px;
-}.p-b .preto_branco {    -webkit-filter: grayscale(1);    filter: grayscale(1);}p-b .preto_branco:hover {    -webkit-filter: grayscale(0);    filter: grayscale(0);	}	.pb {-webkit-transition-duration: .90s;}.pb:hover {-webkit-transition-duration: .90s;-webkit-filter: grayscale(100%);}
+}.preto_branco img {    -webkit-filter: grayscale(1);    filter: grayscale(1);}preto_branco img:hover {    -webkit-filter: grayscale(0);    filter: grayscale(0);	}	.pb {-webkit-transition-duration: .90s;}.pb:hover {-webkit-transition-duration: .90s;-webkit-filter: grayscale(100%);}
 
 .owl-carousel .owl-controls .owl-nav {
 	opacity: 0!important;

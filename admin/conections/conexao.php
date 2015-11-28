@@ -2,7 +2,7 @@
 error_reporting(0);
 
 //COLOCANDO A VARIAVEL COMO VERDADEIRA - CAI NO PRIMEIRO IF. INFORMACOES DO SERVIDOR LOCAL.
-$status = false;
+$status = true;
 
 if ($status) {    
     $conexao = mysql_connect("localhost", "root", "") or die("Erro na conexao!");

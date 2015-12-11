@@ -1019,9 +1019,9 @@ a.amarelo-escuro:hover {
 .article-category-block .item-smalls .item{ 
 	padding-bottom: 10px;
 	margin-bottom:15px;
-	border-bottom-width: 1px;
+	/*border-bottom-width: 1px;
 	border-bottom-style: dotted;
-	border-bottom-color: #CCC;
+	border-bottom-color: #CCC;*/
 }
 
 
@@ -2970,7 +2970,7 @@ body .title-block .title-links a:first-child:before {
 	top: 0px;
 	width: 101%;
 	height: 100%;
-	opacity: 0.5;
+	opacity: 0.7;
 	z-index: 2;
 	filter: alpha(opacity=50);
 	transition: all 0.2s;
@@ -3277,9 +3277,9 @@ body .title-block .title-links a:first-child:before {
 .ot-panel-block .article-block .item {
 	padding-bottom: 15px;
 	margin-bottom:15px;
-	border-bottom-width: 1px;
+	/*border-bottom-width: 1px;
 	border-bottom-style: dotted;
-	border-bottom-color: #CCC;
+	border-bottom-color: #CCC;*/
 }
 
 .ot-panel-block .article-block .item:last-child {

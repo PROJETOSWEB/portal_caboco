@@ -9,7 +9,7 @@
 /* MAIN SLIDE */
 
 .glossy-square-gray .slide-wrapper {
-	background-color: #FFF;
+	background-color: #fff;
 }
 
 /* END OF MAIN SLIDE */
@@ -118,7 +118,7 @@
 /* THUMBNAIL IMAGE */
 
 .glossy-square-gray .thumbnail {
-	background-color: #FFF;
+	background-color: #d01616;
 	border: solid 3px #FFF;
 	-webkit-filter: grayscale(100%);	   -moz-filter: grayscale(100%);	    -ms-filter: grayscale(100%);    	     -o-filter: grayscale(100%);	filter: grayscale(100%);
 }
@@ -128,8 +128,8 @@
 
 /* THUMBNAIL SCROLLER */
 
-.glossy-square-gray .thumbnail-scroller.horizontal {
-	bottom: 0;	width: 570px;
+.glossy-square-gray .thumbnail-scroller {
+	bottom: 0;	width: 50%;	height: 50%;
 }
 
 
@@ -147,48 +147,26 @@
 
 .glossy-square-gray .thumbnail-scroller .thumbnail.select {
 	border: solid 3px #FFF;
-	-webkit-filter: grayscale(20%);		   -moz-filter: grayscale(20%);		    -ms-filter: grayscale(20%);    		     -o-filter: grayscale(20%);		filter: grayscale(20%);	}
+	-webkit-filter: grayscale(00%);		   -moz-filter: grayscale(00%);		    -ms-filter: grayscale(00%);    		     -o-filter: grayscale(00%);		filter: grayscale(00%);	}
 
 
 /* THUMBNAIL CAPTION */
 
-.glossy-square-gray .thumbnail .caption .background {
+/*.glossy-square-gray .thumbnail .caption .background {
 	background-color: #000;
 	filter: alpha(opacity=50);
 	opacity: 0.5;
-}
+}*/
 
 
 .glossy-square-gray .thumbnail .caption .content { font-family: Raleway;
-	color: #FFF;	font-weight: 600;
-	font-size: 16px;
-	line-height: 14px;
+	color: #FFF;	font-weight: 900;
+	font-size: 17px;
+	line-height: 18px;
 	text-align: left;
-	padding: 10px 10px;
-	margin: 0;
+	padding: 10px 10px;	padding-right: 10px;	text-shadow: 3px 3px 5px #000000;	
 }
 
 /* END OF THUMBNAIL CAPTION */
 
 
-
-
-/* TOOLTIP */
-
-.glossy-square-gray .tooltip {
-	background-color: #DDD;
-	margin-bottom: 20px;
-	border: #EEE solid 4px;
-	border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-}
-
-
-.glossy-square-gray .tooltip .content {
-	color: #999;
-	padding: 10px;
-	margin: 0;
-}
-
-/* END OF TOOLTIP */

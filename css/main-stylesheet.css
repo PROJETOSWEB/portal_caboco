@@ -443,25 +443,25 @@ a.amarelo-escuro:hover {
 
 
 .verde-bg {
-	background-color: #8CC63E;	border-bottom-color: #8CC63E;
+	background-color: #8CC63E;	border-bottom-color: #8CC63E;	color: #fff;
 }
 .vermelho-bg {
-	background-color: #ED1C24;	border-bottom-color: #ED1C24;
+	background-color: #ED1C24;	border-bottom-color: #ED1C24;	color: #fff;
 }
 .laranja-bg {
-	background-color: #F7931D;	border-bottom-color: #8CC63E;
+	background-color: #F7931D;	border-bottom-color: #8CC63E;	color: #fff;
 }
 .roxo-bg {
-	background-color: #91268F;	border-bottom-color: #F7931D;
+	background-color: #91268F;	border-bottom-color: #F7931D;	color: #fff;
 }
 .marrom-bg {
-	background-color: #A87B4F;	border-bottom-color: #A87B4F;
+	background-color: #A87B4F;	border-bottom-color: #A87B4F;	color: #fff;
 }
 .azul-bg {
-	background-color: #27A9E1;	border-bottom-color: #27A9E1;
+	background-color: #27A9E1;	border-bottom-color: #27A9E1;	color: #fff;
 }
 .amarelo-escuro-bg {
-	background-color: #FFDD17;	border-bottom-color: #FFDD17;
+	background-color: #FFDD17;	border-bottom-color: #FFDD17;	color: #fff;
 }.preto-bg {	background-color: #000;	color: #fff;}
 
 

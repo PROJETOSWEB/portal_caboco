@@ -23,8 +23,8 @@
 	background: url(images/playpause.png) no-repeat;
 	width: 64px;
 	height: 64px;
-	top: 50%;
-	left: 50%;
+	top: 100%;
+	left: 100%;
 	margin-top: -32px;
 	margin-left: -32px;
 }
@@ -54,63 +54,30 @@
 
 /* SLIDE CAPTION */
 
-.glossy-square-gray .caption-container .background {
-	background-color: #000;
-	width: 100%;
-	height: 100%;
-}
 
-
-.glossy-square-gray .caption-container .caption {
-	color: #FFF;
-	margin: 0;
-	padding: 8px;
-	font-size: 16px;
-	line-height: 18px;
-}
 
 /* END OF SLIDE CAPTION */
 
 
 
-/* this contains the buttons */
-.glossy-square-gray .slide-buttons .buttons-inner a {
+/* this contains the buttons TEMPORIZADOR  */
+/*.glossy-square-gray .slide-buttons .buttons-inner a {
 	background: url(images/buttons.png) no-repeat;
 	background-position: 0 0;
 	width: 14px;
 	height: 15px;
 	margin: 0 2px;
-}
-
-
-.glossy-square-gray .slide-buttons .buttons-inner a.over {
-	background-position: -14px 0; 
-}
-
-
-.glossy-square-gray .slide-buttons .buttons-inner a.select {
-	background-position: -28px 0; 
-}
+}*/
 
 
 
-.glossy-square-gray .slide-buttons .buttons-inner a.over .number {
-	color: #FFF;
-}
-
-
-.glossy-square-gray .slide-buttons .buttons-inner a.select .number {
-	color: #FFF;
-}
 
 
 /* 
  applied to the thumbnail when the thumbnail is used only as a tooltip
  sets the distance between the button and the thumbnail
 */
-.glossy-square-gray .slide-buttons .buttons-inner .thumbnail-wrapper {
-	margin-bottom: 10px;
-}
+
 
 /* END OF SLIDE BUTTONS/BULLETS */
 
@@ -127,14 +94,6 @@
 
 
 /* THUMBNAIL SCROLLER */
-
-.glossy-square-gray .thumbnail-scroller {
-	bottom: 0;	width: 50%;	height: 50%;
-}
-
-
-
-
 
 
 
@@ -160,7 +119,7 @@
 
 
 .glossy-square-gray .thumbnail .caption .content { font-family: Raleway;
-	color: #FFF;	font-weight: 900;
+	color: #FFF;	font-weight: 600;
 	font-size: 17px;
 	line-height: 18px;
 	text-align: left;
